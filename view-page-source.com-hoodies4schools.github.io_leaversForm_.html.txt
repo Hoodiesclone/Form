@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Site Key for captcha: 6LfqdIQpAAAAAOKWXDFtSgnh1cbrlOjJl26gthux -->
+    <!-- Secret Key for captcha: 6LfqdIQpAAAAAGOf0zM6AKd0Kx66TekINvKuJdmj -->
+    <meta charset="UTF-8">
+    <title>Hoodies4Schools Enquiry Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "RzbIcom4CD4k1wkZg",
+      });
+   })();
+</script>
+    <style>
+
+        .hoodie-container {
+            font-size: 0;
+            /* max-width: 800px; */
+            /* display: flex; */
+            justify-content: center;
+            border: 1px;
+            border-radius: 8px;
+            padding: 5px;
+            margin: 30px auto;
+            display: none;
+        }
+        #collegeHoodieContainer{
+            display: flex;
+        }
+
+        .colour-img {
+            margin: 5px;
+            /* padding: 1px; */
+            width: 80px;
+            height: auto;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent;
+            border-radius: 8px;
+            opacity: 100%;
+            background-color:#ccc;
+        }
+
+        .previewHeading {
+    font-family: "Outfit", sans-serif; /* Use the same font family as other headings */
+    font-size: 30px; /* Adjust font size */
+    font-weight: normal;
+    color: #e93968; /* Match the color to the design theme */
+    text-align: left; /* Center align the heading */
+    text-transform: capitalize; /* Capitalize the heading */
+    margin: 10px 0; /* Adjust margin to fit with surrounding elements */
+}
+
+.sizeGuideSubText{
+    font-family: "Outfit", sans-serif; /* Use the same font family as other headings */
+    font-size: 16px; /* Adjust font size */
+    font-weight: normal; /* Use the default font weight */
+    color: #666; /* Adjust color to complement the heading */
+    text-align: left; /* Align the subtext to match the heading */
+    margin-top: 0;
+
+}
+
+        
+
+        .optionsAndPreview{
+            display: inline-block;
+            width: 55%;
+            height: 100%;
+            font-size: 16px;
+            vertical-align: top;
+        }
+
+        .colour-img:hover {
+            opacity: 50%;
+            transition: 150ms;
+            cursor: pointer;
+        }
+
+        .previewImg {
+            border: 0px;
+            border-radius: 8px;
+            width:400px;
+            max-width: 500px;
+            max-height: 500px;
+            transition: opacity 150ms ease-in;
+        }
+
+        .size-guide{
+            max-width: 90vw;
+            margin: auto;
+        }
+
+        .garmentInfo{
+            display: inline-block;
+        }
+
+
+        .submit-button {
+            background-color: #e93968;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            font-size: 16px;
+            margin: auto;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+
+        .card-group{
+            display: flex;
+            justify-content: center;
+        }
+        .card{
+            max-width : 200px;  
+            margin: 20px;
+            transition: transform 250ms ease;
+            border-width: 5px;
+            border-color: transparent;
+            
+            
+        }
+        .card:hover{
+            transform: scale(0.9);
+            transition: 300ms;
+            cursor: pointer;
+            color: #45a049;
+        }
+        .card::after{
+            transform: scale(1);
+            transition: 200ms;
+        }
+
+        .card-title{
+            margin: 5px;
+            text-align: center;
+
+        }
+        .card img{
+            border-radius: 8px;
+        }
+
+
+        .selectHeading {
+            font-family: "Outfit", sans-serif;
+            font-size: 40px;
+            font-weight: bold;
+            color: #e93968; /* Change color as needed */
+            text-align: center; /* Adjust alignment as needed */
+            text-transform: capitalize;
+            margin: 0 5vw;
+        }
+
+        .selectSubText{
+            font-family: "Outfit", sans-serif;
+            font-size: 25px;
+            font-weight: lighter;
+            text-align: center;
+        }
+
+        .sublink{
+            color: #e93968;;
+            font-weight: 400;
+        }
+
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            background-color: slategray;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .tabs {
+            display: flex;
+        }
+
+        .tab {
+            background-color: #f0f0f0;
+            padding: 10px;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 8px;
+        }
+
+        .content {
+            padding: 10px;
+        }
+
+        .tab-content {
+        display: none;
+        transition: opacity 0.3s ease-in-out; /* Add transition effect */
+        opacity: 0; /* Initially set opacity to 0 */
+        
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1; /* Set opacity to 1 for active tab */
+
+        }
+
+        #tab1{
+            display: flex;
+            opacity: 1;
+        }
+        .designsContainer{
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Add this line to center align the items */
+
+        }
+
+        .designImg{
+            border-radius: 8px;
+            width: 200px;
+            margin: 5px 10px;
+            background-color:#a9a9a9;
+            padding: 10px;
+            transition: transform 250ms ease;
+        }
+        .designImg:hover{
+            transform: scale(0.9); 
+            cursor: pointer;
+        }
+
+        .designImg:not(:hover) {
+            transform: scale(1); /* Reverse transition when not hovering */
+        }
+
+    
+    .formContainer {
+        margin: 50px auto;
+        padding: 20px;
+        background: seashell;
+        border-radius: 5px;
+        width: 100%;
+    }
+    input[type="text"], input[type="email"], textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .lableAndInput{
+        width: 50%;
+        margin: 10px;
+        justify-content: center;
+    }
+
+    .emailInput{
+        width: 100%;
+        margin: 10px;
+        justify-content: center;
+    }
+
+    .formRow{
+        display: flex;
+    }
+
+    .interestedInSubHeading{
+        color: gray;
+        font-size: 20px;
+        display: block;
+    }
+
+    .selectedVal{
+        color: #45a049;
+        font-size: 28px;
+        text-transform: uppercase;
+        font-weight: 600;
+
+    }
+
+    .selectBox{
+        margin: 0 10px;
+        font-size: 20px;
+        padding: 5px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .checkBoxRow{
+        display: flex;
+        margin: 10px;
+        font-size: 20px;
+    }
+
+    #checkBox{
+        margin: 0 10px;
+        width: 30px;
+        height: 30px;
+        font-size: 28px;
+        accent-color: #e93968;
+    }
+
+    #designInterested, #chosenDesignForm{
+        display: inline-block;
+        vertical-align: top;
+        
+    }
+    .hiddenFields{
+        visibility: hidden;
+    }
+
+    .subtext {
+    font-size: 20px; /* Adjust the font size as needed */
+    color: #202020; /* Set the color of the text */
+    margin-top: 5px;
+    font-weight: 500; /* Add some space between the disclaimer and other form elements */
+}
+
+    /* Adjustments for small screens */
+@media (max-width: 768px) {
+
+    .hoodie-container{
+        display: none;
+    }
+    .card-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+    }
+
+    .card{
+        max-width : 50vw;  
+        margin: 5px; 
+        }
+    
+        #collegeHoodieContainer{
+            display: block;
+        }
+
+    .optionsAndPreview {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+
+.previewHeading {
+     /* Match the color to the design theme */
+    text-align: center; /* Center align the heading *//* Adjust margin to fit with surrounding elements */
+}
+
+    .tab-container {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .tab{
+        width: 50%;
+        text-align: center;
+        display: flex;
+        justify-content: center; /* Horizontally centers the content */
+        align-items: center; 
+    }
+
+    .formContainer {
+        width: 100%;
+    }
+
+    .designImg{
+            width: 30vw;
+            margin: 5px 5px;
+            background-color:darkgrey;
+            padding: 10px;
+            transition: transform 250ms ease;
+    }
+
+    .designsContainer{
+        width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Defines 3 columns with equal width */
+    justify-content: center;
+    align-items: center;
+    }
+    .colour-img{
+        margin: 5px;
+    }
+
+}
+
+/* Adjustments for larger screens */
+@media (min-width: 992px) {
+    .formRow {
+        flex-direction: row;
+    }
+
+    .lableAndInput {
+        width: 50%;
+    }
+
+    .emailInput {
+        width: 100%;
+    }
+    .colour-img{
+        margin: 5px;
+    }
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+<div class="card-group" id = "cardParent" >
+    <div class="card" id = "collegeHoodieCard" val = "College Hoodie" >
+        <img src="TabImages/collegeHoodieThumbnail.png" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">College Hoodie</h5>
+        </div>
+    </div>
+    <div class="card" id= "kidsHoodieCard" >
+        <img src="TabImages/kidsHoodieThumbnail.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Kids Hoodie</h5>
+        </div>
+        </div>
+        <div class="card" id= "zoodieCard">
+        <img src="TabImages/zoodieThumbnail.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Zoodie</h5>
+        </div>
+        </div>
+        <div class="card" id= "varsityHoodieCard">
+        <img src="TabImages/varsityHoodieThumbnail.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Varsity Hoodie</h5>
+        </div>
+        </div>
+        <div class="card" id= "sweatshirtCard">
+        <img src="TabImages/sweatshirtThumbnail.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Sweatshirt</h5>
+        </div>
+        </div>
+    </div>
+
+    <h2 class = "selectHeading">1. Please choose a colour: </h2>
+    <p class = selectSubText>- select a coloured garment you're interested in, or <a class = "sublink" href="https://hoodies4schools.co.uk/page/get-in-touch" target="_blank">contact us</a> with your own ideas -</p>
+
+<div class="hoodie-container" id = "collegeHoodieContainer">
+    <div class ="color-img optionsAndPreview"id="JH001-options"></div> 
+    <!-- The content for the bove line is added using JS later on -->
+    <div class ="garmentInfo">
+        <img class="previewImg optionsAndPreview" id="displayJH001" src="JH001Imgs/black.png" val="blackHoodie">
+        <h3 class = "previewHeading" id="collegeHoodie">Chosen Garment: College Hoodie</h3>
+        <h3 class = "previewHeading" id="collegeColour"></h3>
+        <h4 class = "previewHeading" id="sizeGuide">Size Guide (inches)</h4>
+        <p class="sizeGuideSubText">*some colours may not be available in all sizes*</p>
+        <img class = "size-guide" src = "SizeGuides/jh001SizeGuide.png"></div>
+        
+</div>
+
+
+<div class="hoodie-container" id = "kidsHoodieContainer">
+    <div class="color-img optionsAndPreview" id="JH001J-options"></div> 
+    <div class ="garmentInfo">
+        <img class="previewImg optionsAndPreview" id="displayJH001J" src="JH001JImgs/deep_Black.jpg" val="blackHoodie">
+    <h3 class = "previewHeading" id="collegeHoodie">Chosen Garment: Kids Hoodie</h3>
+        <h3 class = "previewHeading" id="kidsColour"></h3>
+        <h4 class = "previewHeading" id="sizeGuide">Size Guide (inches)</h4>
+        <p class="sizeGuideSubText">*some colours may not be available in all sizes*</p>
+        <img class = "size-guide" src = "SizeGuides/jh001jSizeGuide.png"></div>
+    </div>
+    
+</div>
+
+<div class="hoodie-container" id = "zoodieContainer">
+    <div class="color-img optionsAndPreview" id="JH050-options"></div> 
+    <div class ="garmentInfo">
+        <img class="previewImg optionsAndPreview" id="displayJH050" src="JH050Imgs/black_Smoke.jpg" val="blackHoodie">
+        <h3 class = "previewHeading" id="collegeHoodie">Chosen Garment: Zoodie</h3>
+        <h3 class = "previewHeading" id="zoodieColour"></h3>
+        <h4 class = "previewHeading" id="sizeGuide">Size Guide (inches)</h4>
+        <p class="sizeGuideSubText">*some colours may not be available in all sizes*</p>
+        <img class = "size-guide" src = "SizeGuides/jh050SizeGuide.png"></div>
+    </div>
+    
+</div>
+
+<div class="hoodie-container" id = "varsityHoodieContainer">
+    <div class="color-img optionsAndPreview" id="JH003-options"></div>
+    <div class ="garmentInfo"> 
+    <img class="previewImg optionsAndPreview" id="displayJH003" src="JH003Imgs/Arctic_White_French_Navy.jpg" val="blackHoodie">
+    <h3 class = "previewHeading" id="collegeHoodie">Chosen Garment: Varsity Hoodie</h3>
+        <h3 class = "previewHeading" id="varsityColour"></h3>
+        <h4 class = "previewHeading" id="sizeGuide">Size Guide (inches)</h4>
+        <p class="sizeGuideSubText">*some colours may not be available in all sizes*</p>
+        <img class = "size-guide" src = "SizeGuides/jh003SizeGuide.png" ></div></div>
+</div>
+
+<div class="hoodie-container" id = "sweatshirtContainer">
+    <div class="color-img optionsAndPreview" id="JH030-options"></div> 
+    <div class ="garmentInfo">
+    
+    <img class="previewImg optionsAndPreview" id="displayJH030" src="JH030Imgs/black_smoke.jpg" val="blackHoodie">
+    <h3 class = "previewHeading" id="collegeHoodie">Chosen Garment: Sweatshirt</h3>
+        <h3 class = "previewHeading" id="sweatshirtColour"></h3>
+        <h4 class = "previewHeading" id="sizeGuide">Size Guide (inches)</h4>
+        <p class="sizeGuideSubText">*some colours may not be available in all sizes*</p>
+        <img class = "size-guide" src = "SizeGuides/jh030SizeGuide copy.png"></div></div>
+</div>
+
+
+<h2 class = "selectHeading">2. Please choose a design: </h2>
+<p class = selectSubText>- select a design you're interested in, or <a class = "sublink" href="https://hoodies4schools.co.uk/page/get-in-touch" target="_blank">contact us</a> with your own ideas -</p>
+<div class="tab-container">
+    <div class="tabs">
+        <div class="tab" onclick="openTab('tab1')">Leavers Designs</div>
+        <div class="tab" onclick="openTab('tab2')">Ski Designs</div>
+    </div>
+    <div class="content">
+        <div id="tab1" class="tab-content">
+            <div class = "designsContainer" id = "leaversDesigns"> </div>
+        </div>
+        
+        <div id="tab2" class="tab-content">
+            <div class = "designsContainer" id = "skiDesigns"></div>
+        </div>
+    </div>
+    </div>
+    
+        <h2 class ="selectHeading">3. Please choose any extra options</h2>
+        <p class = selectSubText>- select an option you're interested in, or <a class = "sublink" href="https://hoodies4schools.co.uk/page/get-in-touch" target="_blank">contact us</a> with your own ideas -</p>
+        <div id = "extra-options" class = "card-group">
+
+    </div>
+
+    <h2 class = "selectHeading">4. Please tell us about your yourself:</h2>
+    <p class="selectSubText">-fill out the below and one of our team will send you a jet propelled carrier pigeon along with a personal sales assisant -</p>
+    <div class="formContainer">
+        <form id="contactForm" autocomplete="off">
+            
+            <div class = "formRow"> 
+                <div class="lableAndInput">
+                    <label class = "smallInputField" for="firstName">First Name*</label>
+                    <input type="text" id="firstName" name="firstName" required>
+
+                </div>
+
+            <div class="lableAndInput">
+                <label for="lastName">Last Name*</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            </div>
+            
+
+            <div class = "formRow"> 
+                <div class="lableAndInput">
+                    <label for="orgName">Organisation Name*</label>
+                    <input type="text" id="orgName" name="orgName" required>
+                </div>
+                <div class="lableAndInput">
+                    <label for="contactNumber">Contact Number*</label>
+                    <input type="text" id="contactNumber" name="contactNumber" required>
+                </div>
+            </div>
+
+            <div class="formRow">
+                <div class="emailInput">
+                <label for="email">Email Address*</label>
+                <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+
+            <div class="interestedIn">
+                <h3>Interested In</h3>
+                <h3 class="interestedInSubHeading" id="garmentInterestedIn">Garment - <span class="selectedVal" id="selectedGarment">College Hoodie</span></h3>
+                <p class = "subtext">*If your interested in other garments, please specify in the notes below*</p>
+                <h3 class="interestedInSubHeading" id="colourInterested"></span></h3>
+                <div class ="interestedInDesignRow" id = "displaySelectedColours"><h3 class="interestedInSubHeading" id="selectedColoursHeader"></h3></div>
+                <div class ="interestedInDesignRow"><h3 class="interestedInSubHeading" id="designInterested"></h3>
+                <div class ="interestedInDesignRow" id = "displayExtraOptions"><h3 class="interestedInSubHeading" id="extraOptionsHeader"></h3></div>
+                
+                </div>
+                </div>
+
+            <div class="formRow">
+                <label for="orderQuant">Estimated Order Quantity: </label>
+                <select class="selectBox" id = "orderQuant">
+                    <option value="Not Sure">Not Sure</option>
+                    <option value="5+">5+</option>
+                    <option value="10+">10+</option>
+                    <option value="25+">25+</option>
+                    <option value="50+">50+</option>
+                    <option value="100+">100+</option>
+                    <option value="200+">200+</option>
+                </select>
+            </div>
+
+    
+            <label for="notes">Notes *</label>
+            <textarea id="notes" name="notes" rows="4"></textarea>
+
+            <h3 for>Become a VIP to hear about new products and offers?</h3>
+            <div class="checkBoxRow">
+                <input class="mailingCheckBox" id="checkBox" type="checkbox" checked>
+            <label for="checkBox">Yes Please</label>
+            </div>
+            <button class="submit-button" onclick= "sendMail2(event)">Submit</button>
+            
+        </form>
+    </div>
+
+    
+
+<script>
+
+
+// Define the image sources
+const JH001Imgs = [
+    "JH001Imgs/airforce_Blue.jpg",
+    "JH001Imgs/apple_Green.jpg",
+    "JH001Imgs/arctic_White.jpg",
+    "JH001Imgs/ash.jpg",
+    "JH001Imgs/bapy_Pink.jpg",
+    "JH001Imgs/black_Smoke.jpg",
+    "JH001Imgs/bottle_Green.jpg",
+    "JH001Imgs/brick_Red.jpg",
+    "JH001Imgs/bright_Royal.jpg",
+    "JH001Imgs/burgundy_Smoke.jpg",
+    "JH001Imgs/burgundy.jpg",
+    "JH001Imgs/burnt_Orange.jpg",
+    "JH001Imgs/candyfloss_Pink.jpg",
+    "JH001Imgs/caramel_Latte.jpg",
+    "JH001Imgs/caramel_Toffee.jpg",
+    "JH001Imgs/charcoal.jpg",
+    "JH001Imgs/chocolate_Fudge_Brownie.jpg",
+    "JH001Imgs/citrus.jpg",
+    "JH001Imgs/combat_Green.jpg",
+    "JH001Imgs/cornflower_Blue.jpg",
+    "JH001Imgs/cranberry.jpg",
+    "JH001Imgs/deep_Black.jpg",
+    "JH001Imgs/deep_Sea_Blue.jpg",
+    "JH001Imgs/denim.jpg",
+    "JH001Imgs/desert_Sand.jpg",
+    "JH001Imgs/digital_Lavendar.jpg",
+    "JH001Imgs/dusty_Blue.jpg",
+    "JH001Imgs/dusty_Green.jpg",
+    "JH001Imgs/dusty_Lilac.jpg",
+    "JH001Imgs/dusty_Pink.jpg",
+    "JH001Imgs/dusty_Purple.jpg",
+    "JH001Imgs/dusty_Rose.jpg",
+    "JH001Imgs/earthy_Green.jpg",
+    "JH001Imgs/festival_Fuchsia.jpg",
+    "JH001Imgs/fire_Red.jpg",
+    "JH001Imgs/forest_Green.jpg",
+    "JH001Imgs/ginger_Biscuit.jpg",
+    "JH001Imgs/gold.jpg",
+    "JH001Imgs/graphite_Heather.jpg",
+    "JH001Imgs/hawaiin_Blue.jpg",
+    "JH001Imgs/heather.jpg",
+    "JH001Imgs/hot_Chocolate.jpg",
+    "JH001Imgs/hot_Pink.jpg",
+    "JH001Imgs/ink_Blue.jpg",
+    "JH001Imgs/jade.jpg",
+    "JH001Imgs/jet_Black.jpg",
+    "JH001Imgs/kelly_Green.jpg",
+    "JH001Imgs/lagoon_Blue.jpg",
+    "JH001Imgs/lavendar.jpg",
+    "JH001Imgs/lime_Green.jpg",
+    "JH001Imgs/lipstick_Pink.jpg",
+    "JH001Imgs/magenta_Magic.jpg",
+    "JH001Imgs/mocha.jpg",
+    "JH001Imgs/moondust_Grey.jpg",
+    "JH001Imgs/moss_Green.jpg",
+    "JH001Imgs/mustard.jpg",
+    "JH001Imgs/natural_Stone.jpg",
+    "JH001Imgs/navy_Smoke.jpg",
+    "JH001Imgs/new_french_Navy.jpg",
+    "JH001Imgs/nude.jpg",
+    "JH001Imgs/olive_Green.jpg",
+    "JH001Imgs/orange_Crush.jpg",
+    "JH001Imgs/oxford_Navy.jpg",
+    "JH001Imgs/peach_Perfect.jpg",
+    "JH001Imgs/peppermint.jpg",
+    "JH001Imgs/pinky_Purple.jpg",
+    "JH001Imgs/pistachio.jpg",
+    "JH001Imgs/plum.jpg",
+    "JH001Imgs/pumpkin_Pie.jpg",
+    "JH001Imgs/purple.jpg",
+    "JH001Imgs/red_Hot_Chilli.jpg",
+    "JH001Imgs/red_Rust.jpg",
+    "JH001Imgs/royal_Blue.jpg",
+    "JH001Imgs/saphire.jpg",
+    "JH001Imgs/seafoam.jpg",
+    "JH001Imgs/shark_Grey.jpg",
+    "JH001Imgs/sherbert_Lemon.jpg",
+    "JH001Imgs/sky_Blue.jpg",
+    "JH001Imgs/soft_Red.jpg",
+    "JH001Imgs/spring_Green.jpg",
+    "JH001Imgs/steel_Grey.jpg",
+    "JH001Imgs/storm_Grey.jpg",
+    "JH001Imgs/sun_Yellow.jpg",
+    "JH001Imgs/sunset_Orange.jpg",
+    "JH001Imgs/tropical_Blue.jpg",
+    "JH001Imgs/true_Violet.jpg",
+    "JH001Imgs/turquoise_Surf.jpg",
+    "JH001Imgs/ultra_Violet.jpg",
+    "JH001Imgs/vanilla_Milkshake.jpg",
+    "JH001Imgs/wild_Mulberry.jpg"
+];
+
+
+const JH001JImgs = [
+    "JH001JImgs/airforce_Blue.jpg",
+    "JH001JImgs/arctic_White.jpg",
+    "JH001JImgs/ash.jpg",
+    "JH001JImgs/baby_Pink.jpg",
+    "JH001JImgs/black_Smoke.jpg",
+    "JH001JImgs/bottle_Green.jpg",
+    "JH001JImgs/burgundy.jpg",
+    "JH001JImgs/charcoal.jpg",
+    "JH001JImgs/deep_Black.jpg",
+    "JH001JImgs/desert_Sand.jpg",
+    "JH001JImgs/digital_Purple.jpg",
+    "JH001JImgs/dusty_Green.jpg",
+    "JH001JImgs/dusty_Pink.jpg",
+    "JH001JImgs/fire_Red.jpg",
+    "JH001JImgs/forest_Green.jpg",
+    "JH001JImgs/hawaiin_Blue.jpg",
+    "JH001JImgs/heather_Grey.jpg",
+    "JH001JImgs/hot_Pink.jpg",
+    "JH001JImgs/jade.jpg",
+    "JH001JImgs/jet_Black.jpg",
+    "JH001JImgs/kelly_Green.jpg",
+    "JH001JImgs/lime_Green.jpg",
+    "JH001JImgs/new_French_Navy.jpg",
+    "JH001JImgs/olive.jpg",
+    "JH001JImgs/orange_Crush.jpg",
+    "JH001JImgs/oxford_Navy.jpg",
+    "JH001JImgs/peppermint.jpg",
+    "JH001JImgs/plum.jpg",
+    "JH001JImgs/purple.jpg",
+    "JH001JImgs/red_Hot_Chilli.jpg",
+    "JH001JImgs/royal_Blue.jpg",
+    "JH001JImgs/sapphire_Blue.jpg",
+    "JH001JImgs/sky_Blue.jpg",
+    "JH001JImgs/storm_Grey.jpg",
+    "JH001JImgs/sun_Yellow.jpg"
+];
+
+const JH030Imgs = [
+    "JH030Imgs/vanilla_Milkshake.jpg",
+    "JH030Imgs/airforce_Blue.jpg",
+    "JH030Imgs/arctic_White.jpg",
+    "JH030Imgs/ash.jpg",
+    "JH030Imgs/baby_Pink.jpg",
+    "JH030Imgs/black_smoke.jpg",
+    "JH030Imgs/bottle_Green.jpg",
+    "JH030Imgs/bright_Royal.jpg",
+    "JH030Imgs/burgundy.jpg",
+    "JH030Imgs/burnt_Orange.jpg",
+    "JH030Imgs/candyfloss_Pink.jpg",
+    "JH030Imgs/caramel_Latte.jpg",
+    "JH030Imgs/charcoal.jpg",
+    "JH030Imgs/chocolate_Fudge_Brownie.jpg",
+    "JH030Imgs/cornflower_Blue.jpg",
+    "JH030Imgs/cranberry.jpg",
+    "JH030Imgs/deep_black.jpg",
+    "JH030Imgs/desert_Sand.jpg",
+    "JH030Imgs/digital_lavender.jpg",
+    "JH030Imgs/dusty_Green.jpg",
+    "JH030Imgs/dusty_Lavender.jpg",
+    "JH030Imgs/dusty_Pink.jpg",
+    "JH030Imgs/dusty_Rose.jpg",
+    "JH030Imgs/earthy_Green.jpg",
+    "JH030Imgs/festival_Fuchsia.jpg",
+    "JH030Imgs/fire_Red.jpg",
+    "JH030Imgs/forest_Green.jpg",
+    "JH030Imgs/ginger_Biscuit.jpg",
+    "JH030Imgs/gold.jpg",
+    "JH030Imgs/graphite_Heather.jpg",
+    "JH030Imgs/hawaiin_Blue.jpg",
+    "JH030Imgs/heather_Grey.jpg",
+    "JH030Imgs/hot_Chocolate.jpg",
+    "JH030Imgs/hot_Pink.jpg",
+    "JH030Imgs/jade.jpg",
+    "JH030Imgs/jet_Black.jpg",
+    "JH030Imgs/kelly_Green.jpg",
+    "JH030Imgs/lagoon_blue.jpg",
+    "JH030Imgs/lavender.jpg",
+    "JH030Imgs/lime.jpg",
+    "JH030Imgs/mocha.jpg",
+    "JH030Imgs/moondust_Grey.jpg",
+    "JH030Imgs/mustard.jpg",
+    "JH030Imgs/natural_Stone.jpg",
+    "JH030Imgs/new_French_Navy.jpg",
+    "JH030Imgs/nude.jpg",
+    "JH030Imgs/olive_Green.jpg",
+    "JH030Imgs/orange_crush.jpg",
+    "JH030Imgs/oxford_Navy.jpg",
+    "JH030Imgs/peppermint.jpg",
+    "JH030Imgs/pistachio.jpg",
+    "JH030Imgs/plum.jpg",
+    "JH030Imgs/pumpkin_Pie.jpg",
+    "JH030Imgs/purple.jpg",
+    "JH030Imgs/red_Hot_Chilli.jpg",
+    "JH030Imgs/royal_Blue.jpg",
+    "JH030Imgs/sapphire_Blue.jpg",
+    "JH030Imgs/seafoam.jpg",
+    "JH030Imgs/sky_Blue.jpg",
+    "JH030Imgs/steel_Grey.jpg",
+    "JH030Imgs/storm_Grey.jpg",
+    "JH030Imgs/sun_Yellow.jpg",
+    "JH030Imgs/turquoise_Surf.jpg"
+];
+
+const JH003Imgs = [
+  "JH003Imgs/Arctic_White_French_Navy.jpg",
+  "JH003Imgs/Baby_Pink_Arctic_White.jpg",
+  "JH003Imgs/Burgundy_Charcoal.jpg",
+  "JH003Imgs/Burgundy_Gold.jpg",
+  "JH003Imgs/Charcoal_Burgundy.jpg",
+  "JH003Imgs/Charcoal_Heather_Grey.jpg",
+  "JH003Imgs/Charcoal_Jet_Black.jpg",
+  "JH003Imgs/Charcoal_Orange_Crush.jpg",
+  "JH003Imgs/Fire_Red_Arctic_White.jpg",
+  "JH003Imgs/Fire_Red_Jet_Black.jpg",
+  "JH003Imgs/Forest_Green_Gold.jpg",
+  "JH003Imgs/Hawaiian_Blue_Oxford_Navy.jpg",
+  "JH003Imgs/Heather_Grey_Fire_Red.jpg",
+  "JH003Imgs/Heather_Grey_Jet_Black.jpg",
+  "JH003Imgs/Heather_Grey_New_French_Navy.jpg",
+  "JH003Imgs/Heather_Grey_Sapphire_Blue.jpg",
+  "JH003Imgs/Hot_Pink_French_Navy.jpg",
+  "JH003Imgs/Jet_Black_Arctic_White.jpg",
+  "JH003Imgs/Jet_Black_Fire_Red.jpg",
+  "JH003Imgs/Jet_Black_Gold.jpg",
+  "JH003Imgs/Jet_Black_Heather_Grey.jpg",
+  "JH003Imgs/Jet_Black_Hot_Pink.jpg",
+  "JH003Imgs/Jet_Black_Kelly_Green.jpg",
+  "JH003Imgs/Jet_Black_Orange_Crush.jpg",
+  "JH003Imgs/Jet_Black_Purple.jpg",
+  "JH003Imgs/Jet_Black_Sapphire_Blue.jpg",
+  "JH003Imgs/Jet_Black_Sun_Yellow.jpg",
+  "JH003Imgs/Kelly_Green_Arctic_White.jpg",
+  "JH003Imgs/New_French_Navy_Fire_Red.jpg",
+  "JH003Imgs/New_French_Navy_Heather_Grey.jpg",
+  "JH003Imgs/New_French_Navy_Sky_Blue.jpg",
+  "JH003Imgs/Oxford_Navy_Candyfloss_Pink.jpg",
+  "JH003Imgs/Oxford_Navy_Hawaiian_Blue.jpg",
+  "JH003Imgs/Oxford_Navy_Sun_Yellow.jpg",
+  "JH003Imgs/Purple_Sun_Yellow.jpg",
+  "JH003Imgs/Royal_Blue_Arctic_White.jpg",
+  "JH003Imgs/Royal_Blue_Sun_Yellow.jpg",
+  "JH003Imgs/Sapphire_Blue_Heather_Grey.jpg",
+  "JH003Imgs/Sapphire_Blue_Orange_Crush.jpg",
+  "JH003Imgs/Sky_Blue_Arctic_White.jpg"
+];
+
+
+
+
+const JH050Imgs = [
+  "JH050Imgs/arctic_White.jpg",
+  "JH050Imgs/ash.jpg",
+  "JH050Imgs/bottle_Green.jpg",
+  "JH050Imgs/black_Smoke.jpg",
+  "JH050Imgs/burgundy.jpg",
+  "JH050Imgs/charcoal.jpg",
+  "JH050Imgs/deep_Black.jpg",
+  "JH050Imgs/desert_Sand.jpg",
+  "JH050Imgs/digital_Lavendar.jpg",
+  "JH050Imgs/dusty_Green.jpg",
+  "JH050Imgs/dusty_Pink.jpg",
+  "JH050Imgs/fire_Red.jpg",
+  "JH050Imgs/forest_Green.jpg",
+  "JH050Imgs/heather.jpg",
+  "JH050Imgs/hot_Pink.jpg",
+  "JH050Imgs/hawaiin_Blue.jpg",
+  "JH050Imgs/jet_Black.jpg",
+  "JH050Imgs/kelly_Green.jpg",
+  "JH050Imgs/mustard.jpg",
+  "JH050Imgs/new_French_Navy.jpg",
+  "JH050Imgs/orange_Crush.jpg",
+  "JH050Imgs/oxford_Navy.jpg",
+  "JH050Imgs/purple.jpg",
+  "JH050Imgs/royal_Blue.jpg",
+  "JH050Imgs/sapphire_Blue.jpg",
+  "JH050Imgs/sun_Yellow.jpg",
+  "JH050Imgs/storm_Grey.jpg",
+  "JH050Imgs/steel_Grey.jpg"
+];
+
+
+// Container element to append images
+const JH001Div = document.getElementById("JH001-options");
+const JH001JDiv = document.getElementById("JH001J-options");
+const JH030Div = document.getElementById("JH030-options");
+const JH003Div = document.getElementById("JH003-options");
+const JH050Div = document.getElementById("JH050-options");
+
+// Loop to generate and append images
+JH001Imgs.forEach((src, index) => {
+    const image = document.createElement("img");
+    image.src = src;
+    let hoodieColour = src.replace('JH001Imgs/','');
+    hoodieColour = hoodieColour.replace('.jpg','');
+    image.alt = `Hoodie ${index + 1}`;
+    image.classList.add("colour-img");
+    image.id = hoodieColour+`hoodie-${index + 1}`; // Add unique id if needed
+    JH001Div.appendChild(image);
+});
+
+JH001JImgs.forEach((src, index) => {
+    const image = document.createElement("img");
+    image.src = src;
+    let hoodieColour = src.replace('JH001JImgs/','')
+    hoodieColour = hoodieColour.replace('.jpg','')
+    image.alt = `Hoodie ${index + 1}`;
+    image.classList.add("colour-img");
+    image.id = hoodieColour+`hoodie-${index + 1}`;// Add unique id if needed
+    JH001JDiv.appendChild(image);
+});
+
+JH030Imgs.forEach((src, index) => {
+    const image = document.createElement("img");
+    image.src = src;
+    let hoodieColour = src.replace('JH003Imgs/','')
+    hoodieColour = hoodieColour.replace('.jpg','')
+    image.alt = `Hoodie ${index + 1}`;
+    image.classList.add("colour-img");
+    image.id = hoodieColour+`hoodie-${index + 1}`;// Add unique id if needed
+    JH030Div.appendChild(image);
+});
+
+JH003Imgs.forEach((src, index) => {
+    const image = document.createElement("img");
+    image.src = src;
+    let hoodieColour = src.replace('JH003Imgs/','')
+    hoodieColour = hoodieColour.replace('.jpg','')
+    image.alt = `Hoodie ${index + 1}`;
+    image.classList.add("colour-img");
+    image.id = hoodieColour+`hoodie-${index + 1}`;// Add unique id if needed
+    JH003Div.appendChild(image);
+});
+
+JH050Imgs.forEach((src, index) => {
+    const image = document.createElement("img");
+    image.src = src;
+    let hoodieColour = src.replace('JH050Imgs/','')
+    hoodieColour = hoodieColour.replace('.jpg','')
+    image.alt = `Hoodie ${index + 1}`;
+    image.classList.add("colour-img");
+    image.id = hoodieColour+`hoodie-${index + 1}`;// Add unique id if needed
+    JH050Div.appendChild(image);
+});
+
+
+    // QuerySelcetor for displayJH001
+    
+    let displayImg = document.querySelector("#displayJH001");
+    let  colourHeading = document.querySelector("#collegeColour");
+
+    // QuerySelectors for mini images
+    let JH001MiniImgs = document.querySelectorAll(".colour-img");
+
+    // Function to change image source with fade effect
+    function changeImage(source, value, displayImg, colourHeading, imagename) {
+        displayImg.style.opacity = 0; // Fade out the image
+        setTimeout(() => {
+            displayImg.src = source; // Change the source of displayJH001
+            displayImg.style.opacity = 1; // Fade in the new image
+            displayImg.setAttribute("val", value); // Set the value attribute
+            colourHeading.innerHTML = "Selected Colour: " + imagename;
+        }, 150); // Wait for 0.5 seconds (same duration as transition) before changing the image source
+    }
+
+
+    // Add event listener to each mini image
+    JH001MiniImgs.forEach(miniHoodie => {
+        miniHoodie.addEventListener("click", function () {
+            let imageName = this.id.replace(`hoodie-`, '');
+            imageName = imageName.replace(/[0-9]/g, '');
+            imageName = imageName.replace("JHImgs/", '');
+            imageName = imageName.replaceAll("_", ' ');
+            imageName = imageName.charAt(0).toUpperCase() + imageName.slice(1);
+            displayImg = document.querySelector("#displayJH001");
+            src = miniHoodie.src;
+
+            if(miniHoodie.src.includes("JH001J")){
+                displayImg = document.querySelector("#displayJH001J");
+                colourHeading = document.querySelector("#kidsColour");
+            
+            }
+            if(miniHoodie.src.includes("JH050")){
+                displayImg = document.querySelector("#displayJH050");
+                colourHeading = document.querySelector("#zoodieColour");
+            }
+            if(miniHoodie.src.includes("JH003")){
+                displayImg = document.querySelector("#displayJH003");
+                colourHeading = document.querySelector("#varsityColour");
+            }
+            if(miniHoodie.src.includes("JH030")){
+                displayImg = document.querySelector("#displayJH030");
+                colourHeading = document.querySelector("#sweatshirtColour");
+            }
+            let val = this.getAttribute("val");
+            changeImage(src, val, displayImg,colourHeading,imageName);
+        });
+    });
+
+    let extraOptions = [
+    "extraOptions/embroidered_Or_Printed_Logo.png",
+    "extraOptions/sleeve_Print.png",
+    "extraOptions/personalised_Name_Sleeve.png",
+    "extraOptions/personalised_Name_Rear.png",
+    "extraOptions/design_Your_Own.png",
+    
+    
+];
+
+extraOptions.forEach(src => {
+    let container = document.getElementById("extra-options");
+    let cardCont = document.createElement("div");
+    cardCont.classList.add("card");
+    
+    let cardDesc = document.createElement("h5");
+    const image = document.createElement("img");
+
+    cardDesc.classList.add("card-title");
+    
+    image.src = src;
+    let name = src.replace("extraOptions/", "");
+    name = name.replace(".png", "");
+    image.id = name;
+    name = name.replaceAll("_", " ");
+    name = name[0].toUpperCase() + name.slice(1);
+    cardDesc.textContent = name; // Changed assignment to textContent
+    
+    cardCont.appendChild(image);
+    cardCont.appendChild(cardDesc);
+    container.appendChild(cardCont); // Corrected variable name
+});
+
+function openTab(tabId) {
+    var tabs = document.getElementsByClassName("tab-content");
+    for (var i = 0; i < tabs.length; i++) {
+        tabs[i].style.opacity = 0; // Set opacity to 0 to fade out the tab content
+    };
+
+    setTimeout(() => {
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].style.display = "none"; // Hide all tab content
+        }
+        document.getElementById(tabId).style.display = "block"; // Show the selected tab content
+        setTimeout(() => {
+            document.getElementById(tabId).style.opacity = 1; // Set opacity to 1 to fade in the selected tab content
+        }, 50); // Shorter delay before fading in
+    }, 0); // Shorter delay before changing the display
+}
+
+// Number of images
+let numOfLeaversDesigns = 38;
+let numOfSkiDesigns = 16
+
+// Container element to append images
+const leaverscontainer = document.getElementById("leaversDesigns");
+const skicontainer = document.getElementById("skiDesigns");
+
+// Loop to generate and append images
+for (let i = 1; i <= numOfLeaversDesigns; i++) {
+    const image = document.createElement("img");
+  image.src = `Leavers24Designs/Leavers${i}.png`; // Adjust the src pattern as needed
+    image.alt = `LeaversDesign${i}`;
+  image.classList.add("designImg"); // Add your desired class
+  image.id = `leavers_Design_${i}`; // Add unique id if needed
+    leaverscontainer.appendChild(image);
+}
+
+for (let i = 1; i <= numOfSkiDesigns; i++) {
+    const image = document.createElement("img");
+//   image.src = `SkiDesigns/Ski_Design${i}.png`; // Adjust the src pattern as needed
+image.src = `SkiDesigns2/Ski_Design${i}.jpg`;
+    image.alt = `SkiDesign${i}`;
+  image.classList.add("designImg"); // Add your desired class
+  image.id = `ski_Design_${i}`; // Add unique id if needed
+    skicontainer.appendChild(image);
+}
+
+let garmentParent = document.getElementById("cardParent"); // Removed # symbol
+let garmentChildrenArray = Array.from(garmentParent.children); // Corrected variable name
+let interestedGarment;
+let interestedColour;
+let interestedDesign;
+
+garmentChildrenArray.forEach(element => {
+    element.addEventListener("click", function(){
+        // Set border color of clicked element
+        garmentChildrenArray.forEach(otherElement => {
+            if (otherElement != element) {
+                otherElement.style.borderColor = "transparent";
+            }
+        });
+        element.style.borderColor = "#45a049";
+        element.style.borderLeft = "5px solid #45a049";
+        
+        
+        // Set inner HTML
+        interestedGarment = element.textContent;
+        interestedGarment=interestedGarment.trim()
+        document.getElementById("garmentInterestedIn").innerHTML = "Garment - <span class=\"selectedVal\" id=\"selectedGarment\">" + interestedGarment+"</span>";
+        
+    });
+});
+
+let extraOptionsParent = document.getElementById("extra-options"); // Removed # symbol
+let extraOptionsParentArray = Array.from(extraOptionsParent.children); // Corrected variable name
+let interestedOption;
+
+
+let selectedOptions = [];
+extraOptionsParentArray.forEach(element => {
+    element.addEventListener("click", function() {
+        const isAlreadySelected = selectedOptions.includes(element);
+
+        // If the element is already selected, deselect it
+        if (isAlreadySelected) {
+            element.style.borderColor = "transparent";
+            const index = selectedOptions.indexOf(element);
+            if (index !== -1) {
+                selectedOptions.splice(index, 1);
+            }
+        } else { // Otherwise, select it
+            element.style.borderColor = "#45a049";
+            element.style.borderLeft = "5px solid #45a049";
+            selectedOptions.push(element);
+            
+        }
+        
+        createSelectedOptionsList();
+    });
+});
+
+
+
+function createSelectedOptionsList() {
+    const div = document.getElementById("displayExtraOptions");
+    let header = document.getElementById("extraOptionsHeader");
+        header.innerHTML = "Chosen Extras: ";
+        const ul = document.createElement("ul");
+        ul.id = "extraOptionsList";
+        let list = document.getElementById("extraOptionsList");
+    
+    if (selectedOptions.length > 0) {
+        // Create a new unordered list element
+        
+        if(list != null){
+            list.remove();
+        }
+        // Loop through the selectedOptions array and create list items for each selected element
+        selectedOptions.forEach(option => {
+            const li = document.createElement("li");
+            li.textContent = option.textContent;
+            li.classList.add("selectedVal"); // You can customize the content of each list item as needed
+            ul.appendChild(li);
+        });
+        //console.log(ul);
+        // Find the div with the specified ID
+        // Append the unordered list to the div
+        div.appendChild(ul);
+    }
+    else{
+        // list.remove();
+        const li = document.createElement("li");
+            li.textContent = "No Option Selected"; // You can customize the content of each list item as needed
+            ul.appendChild(li);
+            div.appendChild(ul);
+    }
+}
+
+// Call the function whenever necessary, such as after modifying the selectedOptions array
+
+// let colorOptions = document.querySelectorAll(".colour-img");
+
+// // Loop through color option images and attach event listeners
+// colorOptions.forEach(option => {
+//     option.addEventListener("click", function() {
+//         // Remove border from all color options
+//         colorOptions.forEach(otherOption => {
+//             otherOption.style.borderColor = "transparent";
+//         });
+//         // Set border color for the clicked color option
+//         option.style.borderColor = "#45a049";
+//         option.style.borderLeft = "5px solid #45a049";
+//         let chosenColorForText = option.id.replace('hoodie-','')
+//         chosenColorForText.toLowerCase;
+//         chosenColorForText = chosenColorForText.replace(/[0-9]/g, '');
+//         chosenColorForText = chosenColorForText.replace('jhimgs/', '');
+//         chosenColorForText = chosenColorForText.replaceAll('_', ' ');
+
+//         // Set the interested color text
+//         document.getElementById("colourInterested").innerHTML = "Colour - <span class=\"selectedVal\" id=\"selectedColor\">" + chosenColorForText+ "</span>";
+//         interestedColour = chosenColorForText;
+        
+//     });
+// });
+
+//=======================================================================
+let colourOptionsParent = document.getElementsByClassName("colour-img");
+let selectedColours = [];
+
+// Convert HTMLCollection to array
+let colourOptionsParentArray = Array.from(colourOptionsParent);
+
+colourOptionsParentArray.forEach(element => {
+    element.addEventListener("click", function() {
+        const isAlreadySelected = selectedColours.includes(element);
+
+        // If the element is already selected, deselect it
+        if (isAlreadySelected) {
+            element.style.borderColor = "transparent";
+            const index = selectedColours.indexOf(element);
+            if (index !== -1) {
+                selectedColours.splice(index, 1);
+            }
+        } else { // Otherwise, select it
+            element.style.borderColor = "#45a049";
+            element.style.borderLeft = "5px solid #45a049";
+            selectedColours.push(element);
+        }
+        // Call function to update selected colors list
+        createSelectedColourList();
+    });
+});
+
+
+
+function createSelectedColourList() {
+    const div = document.getElementById("displaySelectedColours");
+    let header = document.getElementById("selectedColoursHeader");
+        header.innerHTML = "Chosen Colours: ";
+        const ul = document.createElement("ul");
+        ul.id = "extraColoursList";
+        let list = document.getElementById("extraColoursList");
+    
+    if (selectedColours.length > 0) {
+        // Create a new unordered list element
+        
+        if(list != null){
+            list.remove();
+        }
+        // Loop through the selectedColours array and create list items for each selected element
+        selectedColours.forEach(option => {
+            const li = document.createElement("li");
+            let colour = option.id.replace('hoodie-',"")
+            colour = colour.replace(/[0-9]/g, '');
+            colour = colour.replaceAll("_", '');
+            li.textContent = colour
+            li.classList.add("selectedVal"); // You can customize the content of each list item as needed
+            ul.appendChild(li);
+        });
+        //console.log(ul);
+        // Find the div with the specified ID
+        // Append the unordered list to the div
+        div.appendChild(ul);
+    }
+    else{
+        // list.remove();
+        const li = document.createElement("li");
+            li.textContent = "No Option Selected"; // You can customize the content of each list item as needed
+            ul.appendChild(li);
+            div.appendChild(ul);
+    }
+}
+
+function clearSelectedColours() {
+    // Clear the selectedColours array
+    selectedColours = [];
+
+    // Reset styles for all color options
+    colourOptionsParentArray.forEach(element => {
+        element.style.borderColor = "transparent";
+    });
+
+    // Call function to update selected colors list
+    createSelectedColourList();
+}
+
+//=======================================================================
+
+
+let designOptions = document.querySelectorAll(".designsContainer img")
+designOptions.forEach(option => {
+    option.addEventListener("click", function() {
+        // Remove border from all color options
+        designOptions.forEach(otherOption => {
+            otherOption.style.borderColor = "transparent";
+        });
+        // Set border color for the clicked color option
+        option.style.borderColor = "#45a049";
+        option.style.border = "5px solid #45a049";
+        let chosenDesign = option.id.replaceAll("_", ' ')
+        // Set the interested color text
+        document.getElementById("designInterested").innerHTML = "Designs - <span class=\"selectedVal\" id=\"selectedDesign\">" +chosenDesign+ "</span><img src ="+option.src+" class = \"designImg\" id=\"chosenDesignForm\">";
+        interestedDesign = chosenDesign;
+    });
+});
+
+let card = document.querySelectorAll(".card");
+let hoodieCard = document.querySelector("#collegeHoodieCard");
+let kidsHoodieCard = document.querySelector("#kidsHoodieCard");
+let zoodieCard = document.querySelector("#zoodieCard");
+let varsityHoodieCard = document.querySelector("#varsityHoodieCard");
+let sweatshirtCard = document.querySelector("#sweatshirtCard");
+
+let displayType = "flex";
+
+if(screen && screen.width < 768){
+    console.log("we are in")
+    displayType = "block";
+}
+
+
+hoodieCard.addEventListener("click", function(){
+    console.log(displayType);
+    document.querySelector("#collegeHoodieContainer").style.display = displayType;
+    document.querySelector("#kidsHoodieContainer").style.display = "none";
+    document.querySelector("#zoodieContainer").style.display = "none";
+    document.querySelector("#varsityHoodieContainer").style.display = "none";
+    document.querySelector("#sweatshirtContainer").style.display = "none";
+    clearSelectedColours();
+});
+
+kidsHoodieCard.addEventListener("click", function(){
+    console.log(displayType);
+    document.querySelector("#collegeHoodieContainer").style.display = "none";
+    document.querySelector("#kidsHoodieContainer").style.display = displayType;
+    document.querySelector("#zoodieContainer").style.display = "none";
+    document.querySelector("#varsityHoodieContainer").style.display = "none";
+    document.querySelector("#sweatshirtContainer").style.display = "none";
+    clearSelectedColours();
+});
+
+zoodieCard.addEventListener("click", function(){
+    console.log(displayType);
+    document.querySelector("#collegeHoodieContainer").style.display = "none";
+    document.querySelector("#kidsHoodieContainer").style.display = "none";
+    document.querySelector("#zoodieContainer").style.display = displayType;
+    document.querySelector("#varsityHoodieContainer").style.display = "none";
+    document.querySelector("#sweatshirtContainer").style.display = "none";
+    clearSelectedColours();
+});
+
+varsityHoodieCard.addEventListener("click", function(){
+    document.querySelector("#collegeHoodieContainer").style.display = "none";
+    document.querySelector("#kidsHoodieContainer").style.display = "none";
+    document.querySelector("#zoodieContainer").style.display = "none";
+    document.querySelector("#varsityHoodieContainer").style.display = displayType;
+    document.querySelector("#sweatshirtContainer").style.display = "none";
+    clearSelectedColours();
+});
+
+sweatshirtCard.addEventListener("click", function(){
+    document.querySelector("#collegeHoodieContainer").style.display = "none";
+    document.querySelector("#kidsHoodieContainer").style.display = "none";
+    document.querySelector("#zoodieContainer").style.display = "none";
+    document.querySelector("#varsityHoodieContainer").style.display = "none";
+    document.querySelector("#sweatshirtContainer").style.display = displayType;
+    clearSelectedColours();
+});
+
+let customerName = document.getElementById("firstName").value + " " + document.getElementById("lastName").value;
+  let organisationNameFromForm = document.getElementById("orgName").value;
+  let customerEmailForm = document.getElementById("email").value;
+  let customerNumber = document.getElementById("contactNumber").value;
+  let notesForm = document.getElementById("notes").value;
+  let orderQuant = document.getElementById("orderQuant").value;
+  let checkbox = document.getElementById("checkBox");
+  let emailListingForm = checkbox.checked ? "True" : "False";
+
+
+async function sendMail2(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    try {
+        let myList = document.getElementById("extraColoursList");
+        let listItems = myList.querySelectorAll("li");
+        
+        let colourString = "\n";
+        
+        listItems.forEach(item => {
+            colourString += item.textContent + "\n\t";
+        });
+        
+        let extraOptionslist = document.getElementById("extraOptionsList");
+        let extraOptionslistItems = extraOptionslist.querySelectorAll("li");
+        
+        let extraOptionsString = "\n";
+        
+        extraOptionslistItems.forEach(item => {
+            extraOptionsString += item.textContent + "\n\t";
+        });
+        
+        await emailjs.send("service_dafsyzh","template_j87zkjl",{
+            name: document.getElementById("firstName").value + " " + document.getElementById("lastName").value,
+            organisationName: document.getElementById("orgName").value,
+            email: document.getElementById("email").value,
+            number: document.getElementById("contactNumber").value,
+            garment: document.getElementById("garmentInterestedIn").textContent,
+            colour: colourString,
+            design: document.getElementById("designInterested").textContent,
+            extraOptions: extraOptionsString,
+            orderQuant : document.getElementById("orderQuant").value,
+            notes: document.getElementById("notes").value,
+            emailListing: checkbox.checked ? "True" : "False",
+            validation: "Valid", // Please keep this validation line, auto email API breaks if removed
+        });
+        
+        console.log('Email sent successfully');
+        alert("Thank you! A member of our team will be in touch very soon.");
+    } catch (error) {
+        console.error('Failed to send email:', error);
+        alert("Failed to send email. Please try again later.");
+    }
+}
+
+
+
+    </script>
+</body>
+</html>
